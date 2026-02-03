@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commander Bikes | Secure Database</title>
+    <style>
+        body { background: #000; color: #00ff41; font-family: 'Courier New', monospace; text-align: center; }
+        .bike-card { border: 2px solid #00ff41; margin: 15px; padding: 15px; display: inline-block; width: 250px; border-radius: 10px; transition: 0.5s; }
+        .bike-card:hover { background: rgba(0, 255, 65, 0.2); box-shadow: 0 0 20px #00ff41; }
+        img { width: 100%; border-radius: 5px; height: 150px; object-fit: cover; }
+        #admin-panel { display: none; background: #111; border: 2px solid red; position: fixed; bottom: 20px; right: 20px; padding: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>SYSTEM 786: GLOBAL DATABASE</h1>
+<p>WELCOME, COMMANDER.</p>
+
+<div id="bikes-container">
+    <div class="bike-card">
+        <img src="https://images.unsplash.com/photo-1558981403-c5f91cbba527?w=400">
+        <h3>HONDA CG 125</h3>
+        <p id="p1">234,900 PKR</p>
+    </div>
+
+    <div class="bike-card" style="border-color: #00d4ff;">
+        <img src="https://images.unsplash.com/photo-1614165939092-42938150499b?w=400">
+        <h3 style="color: #00d4ff;">KAWASAKI H2</h3>
+        <p>Top Speed: 400 KM/H</p>
+    </div>
+</div>
+
+<button onclick="checkPass()" style="position:fixed; bottom:0; left:0; background:none; border:none; color:#111; cursor:pointer;">.</button>
+
+<div id="admin-panel">
+    <h4 style="color:red;">ADMIN CONTROL</h4>
+    <input type="text" id="newPrice" placeholder="Enter New Price">
+    <button onclick="update()">Update</button>
+</div>
+
+<script>
+    function checkPass() {
+        if(prompt("Enter Commander Key:") === "commander786") {
+            document.getElementById('admin-panel').style.display = "block";
+        }
+    }
+    function update() {
+        let p = document.getElementById('newPrice').value;
+        document.getElementById('p1').innerText = p + " PKR";
+        alert("Commander, Database Updated!");
+    }
+</script>
+
+</body>
+</html>
